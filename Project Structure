@@ -1,0 +1,22 @@
+src/main/java
+├── com
+│   └── healthcare
+│       ├── dao
+│       │   ├── PatientDAO.java
+│       │   └── AppointmentDAO.java
+│       ├── service
+│       │   ├── PatientService.java
+│       │   └── AppointmentService.java
+│       └── model
+│           ├── Patient.java
+│           └── Appointment.java
+src/test/java
+├── com
+│   └── healthcare
+│       ├── dao
+│       │   ├── PatientDAOTest.java
+│       │   └── AppointmentDAOTest.java
+│       └── service
+│           ├── PatientServiceTest.java
+│           └── AppointmentServiceTest.java
+pom.xml
