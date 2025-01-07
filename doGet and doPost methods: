@@ -1,0 +1,50 @@
+package com.healthcare.system;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet("/healthcare")
+public class HealthcareServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<html><body>");
+        out.println("<h1>Welcome to the Online Healthcare Management System</h1>");
+        out.println("<form method='POST' action='/healthcare'>");
+        out.println("<label for='name'>Name:</label>");
+        out.println("<input type='text' id='name' name='name' required><br><br>");
+        out.println("<label for='email'>Email:</label>");
+        out.println("<input type='email' id='email' name='email' required><br><br>");
+        out.println("<input type='submit' value='Submit'>");
+        out.println("</form>");
+        out.println("</body></html>");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<html><body>");
+        if (name != null && email != null) {
+            out.println("<h1>Thank you, " + name + "!</h1>");
+            out.println("<p>We have received your details. An email will be sent to " + email + ".</p>");
+        } else {
+            out.println("<h1>Error: Missing details!</h1>");
+        }
+        out.println("</body></html>");
+    }
+}
